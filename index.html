@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fawn Labs — Software for the animals we keep</title>
+    <meta
+      name="description"
+      content="Fawn Labs LLC builds thoughtful software for backyard animal keepers. Our flagship product, BroodCast, helps chicken keepers monitor their flocks with peace of mind."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fawnlabs.io" />
+    <meta
+      property="og:title"
+      content="Fawn Labs — Software for the animals we keep"
+    />
+    <meta
+      property="og:description"
+      content="Fawn Labs builds thoughtful tools for backyard animal keepers. Our flagship product, BroodCast, is coming soon."
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Fawn Labs — Software for the animals we keep"
+    />
+    <meta
+      name="twitter:description"
+      content="Fawn Labs builds thoughtful tools for backyard animal keepers. Our flagship product, BroodCast, is coming soon."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://fawnlabs.io" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── Reset ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ── Brand tokens ── */
+      :root {
+        --color-bg:              #fdfaf6;
+        --color-nav:             #f4ede0;
+        --color-surface:         #f4ede0;
+        --color-surface-tint:    #eaf3ee;
+        --color-border:          #cfc3ae;
+        --color-divider:         #e4dac8;
+
+        --color-text-primary:    #201c18;
+        --color-text-secondary:  #665c52;
+        --color-text-accent:     #38614a;
+        --color-text-italic:     #4a7c5e;
+
+        --color-btn-primary:     #4a7c5e;
+        --color-btn-primary-hover: #38614a;
+        --color-btn-text:        #fdfaf6;
+
+        --color-tag-bg:          #eaf3ee;
+        --color-tag-border:      #9ec9ae;
+        --color-tag-text:        #284736;
+
+        --font-serif: "Lora", serif;
+        --font-sans:  "DM Sans", sans-serif;
+      }
+
+      /* ── Base ── */
+      html {
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        background: var(--color-bg);
+        font-family: var(--font-sans);
+        color: var(--color-text-primary);
+        min-height: 100vh;
+      }
+
+      /* ── Nav ── */
+      nav {
+        background: var(--color-nav);
+        border-bottom: 1px solid var(--color-divider);
+        padding: 20px 40px;
+      }
+
+      .logo-lockup {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        width: 28px;
+        height: auto;
+        flex-shrink: 0;
+      }
+
+      .logo-name {
+        font-family: var(--font-serif);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        letter-spacing: -0.02em;
+      }
+
+      /* ── Hero ── */
+      .hero {
+        padding: 80px 80px 72px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .overline {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-text-accent);
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-family: var(--font-serif);
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: var(--color-text-primary);
+        max-width: 600px;
+        margin-bottom: 24px;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--color-text-italic);
+      }
+
+      .subhead {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+        max-width: 520px;
+        margin-bottom: 40px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        background: var(--color-btn-primary);
+        color: var(--color-btn-text);
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 500;
+        padding: 14px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.15s;
+      }
+
+      .btn-primary:hover {
+        background: var(--color-btn-primary-hover);
+      }
+
+      /* ── Section divider ── */
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--color-divider);
+        margin: 0 80px;
+      }
+
+      /* ── Product ── */
+      .product-section {
+        padding: 64px 80px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-text-accent);
+        margin-bottom: 32px;
+      }
+
+      .product-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .product-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--color-surface-tint);
+        border: 1px solid var(--color-tag-border);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .product-body {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .product-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--color-tag-bg);
+        color: var(--color-tag-text);
+        border: 1px solid var(--color-tag-border);
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 4px 8px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+
+      .product-tag-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #4a7c5e;
+      }
+
+      h2 {
+        font-family: var(--font-serif);
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--color-text-primary);
+        margin-bottom: 12px;
+      }
+
+      .product-desc {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+        max-width: 540px;
+        margin-bottom: 24px;
+      }
+
+      /* ── Waitlist form (inside product card) ── */
+      .waitlist-form {
+        max-width: 420px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .email-input {
+        flex: 1;
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        color: var(--color-text-primary);
+        outline: none;
+        transition: border-color 0.15s;
+      }
+
+      .email-input::placeholder {
+        color: #b0a494;
+      }
+
+      .email-input:focus {
+        border-color: #72b08e;
+      }
+
+      .cta-btn {
+        background: var(--color-btn-primary);
+        color: var(--color-btn-text);
+        border: none;
+        border-radius: 8px;
+        padding: 14px 22px;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 500;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+
+      .cta-btn:hover {
+        background: var(--color-btn-primary-hover);
+      }
+
+      .form-note {
+        font-size: 12px;
+        color: #b0a494;
+      }
+
+      /* ── Values ── */
+      .values-section {
+        padding: 64px 80px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .value-item {
+        padding: 32px;
+        border-right: 1px solid var(--color-border);
+      }
+
+      .value-item:last-child {
+        border-right: none;
+      }
+
+      .value-icon {
+        width: 32px;
+        height: 32px;
+        color: var(--color-text-accent);
+        margin-bottom: 16px;
+      }
+
+      .value-item h3 {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 8px;
+      }
+
+      .value-item p {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--color-text-secondary);
+      }
+
+      /* ── Footer ── */
+      footer {
+        border-top: 1px solid var(--color-border);
+        background: var(--color-nav);
+        padding: 32px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer-brand {
+        font-family: var(--font-serif);
+        font-size: 13px;
+        font-style: italic;
+        color: var(--color-text-secondary);
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .footer-contact {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+      }
+
+      .footer-link {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+
+      .footer-link:hover {
+        color: var(--color-text-primary);
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 700px) {
+        nav {
+          padding: 16px 20px;
+        }
+
+        .hero {
+          padding: 48px 20px 40px;
+        }
+
+        h1 {
+          font-size: 36px;
+        }
+
+        .subhead {
+          font-size: 16px;
+        }
+
+        .section-divider {
+          margin: 0 20px;
+        }
+
+        .product-section {
+          padding: 40px 20px;
+        }
+
+        .product-card {
+          flex-direction: column;
+          gap: 20px;
+          padding: 24px;
+        }
+
+        .form-row {
+          flex-direction: column;
+        }
+
+        .email-input,
+        .cta-btn {
+          width: 100%;
+        }
+
+        .values-section {
+          padding: 40px 20px;
+        }
+
+        .values-grid {
+          grid-template-columns: 1fr;
+          border-radius: 12px;
+        }
+
+        .value-item {
+          border-right: none;
+          border-bottom: 1px solid var(--color-border);
+        }
+
+        .value-item:last-child {
+          border-bottom: none;
+        }
+
+        footer {
+          flex-direction: column;
+          gap: 16px;
+          padding: 24px 20px;
+          text-align: center;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Nav -->
+    <nav>
+      <a href="/" class="logo-lockup" aria-label="Fawn Labs home">
+        <svg
+          class="logo-mark"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M16 27C16 27 8.5 19.5 8.5 12.5C8.5 8.91 11.91 6 16 6C20.09 6 23.5 8.91 23.5 12.5C23.5 19.5 16 27 16 27Z"
+            fill="#4a7c5e"
+          />
+          <line
+            x1="16"
+            y1="17"
+            x2="16"
+            y2="26"
+            stroke="#eaf3ee"
+            stroke-width="1.4"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span class="logo-name">Fawn Labs</span>
+      </a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="overline">Fawn Labs LLC</p>
+      <h1>Software for the animals <em>we keep.</em></h1>
+      <p class="subhead">
+        We build thoughtful tools for backyard animal keepers — people who raise
+        animals with care and deserve technology that keeps pace with them.
+      </p>
+      <a href="https://broodcast.io" class="btn-primary">See BroodCast</a>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Product -->
+    <section class="product-section">
+      <p class="section-label">Our Products</p>
+      <div class="product-card">
+        <div class="product-icon" aria-hidden="true">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse cx="14" cy="15" rx="8" ry="9" fill="#4a7c5e" opacity="0.18" />
+            <ellipse cx="14" cy="14.5" rx="6" ry="7.5" fill="#4a7c5e" />
+            <path
+              d="M10 21 Q14 23.5 18 21"
+              stroke="#eaf3ee"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              fill="none"
+              opacity="0.5"
+            />
+          </svg>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">
+            <span class="product-tag-dot"></span>
+            In development
+          </span>
+          <h2>BroodCast</h2>
+          <p class="product-desc">
+            Peace of mind for your flock. BroodCast is a smart monitoring
+            platform for backyard chicken keepers — egg tracking, predator
+            alerts, live camera feeds, and flock health, all in one calm,
+            beautiful app.
+          </p>
+          <form
+            class="waitlist-form"
+            action="https://fawnlabs.us9.list-manage.com/subscribe/post?u=19bb6bcbad708e2f6b439aeb0&amp;id=4afef4ab38&amp;f_id=00abc2e1f0"
+            method="post"
+            target="_blank"
+            novalidate
+          >
+            <div class="form-row">
+              <input
+                type="email"
+                name="EMAIL"
+                class="email-input"
+                placeholder="your@email.com"
+                required
+                aria-label="Email address"
+              />
+              <div
+                style="position: absolute; left: -5000px"
+                aria-hidden="true"
+              >
+                <input
+                  type="text"
+                  name="b_19bb6bcbad708e2f6b439aeb0_4afef4ab38"
+                  tabindex="-1"
+                  value=""
+                />
+              </div>
+              <button type="submit" class="cta-btn">Join the waitlist</button>
+            </div>
+            <p class="form-note">No spam. Just updates when we're ready.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- Values -->
+    <section class="values-section">
+      <p class="section-label">How we build</p>
+      <div class="values-grid">
+        <div class="value-item">
+          <svg
+            class="value-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.5" />
+            <path
+              d="M16 10v6l4 2"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h3>Deliberate pace</h3>
+          <p>
+            We take the time to get it right. Features ship when they're ready —
+            not to hit an arbitrary deadline.
+          </p>
+        </div>
+        <div class="value-item">
+          <svg
+            class="value-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="1.5" />
+            <path
+              d="M10 16l4 4 8-8"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h3>Earned trust</h3>
+          <p>
+            We earn access to your animals' data with transparency, strong
+            security, and a privacy-first architecture.
+          </p>
+        </div>
+        <div class="value-item">
+          <svg
+            class="value-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M16 6C16 6 9 10 9 18H23C23 10 16 6 16 6Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 18H23M12 22h8"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <h3>Grounded in real life</h3>
+          <p>
+            Our tools are built by people who actually keep animals. Every
+            decision starts with what's useful in the coop, not on a whiteboard.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span class="footer-brand">Fawn Labs LLC — Delaware</span>
+      <div class="footer-links">
+        <span class="footer-contact">hello@fawnlabs.io</span>
+        <a href="/privacy" class="footer-link">Privacy</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
